@@ -14,6 +14,7 @@
 		8242A0771F3D306200C2EFCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8242A0761F3D306200C2EFCC /* Assets.xcassets */; };
 		8242A07A1F3D306200C2EFCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8242A0781F3D306200C2EFCC /* LaunchScreen.storyboard */; };
 		8242A0831F3D30BE00C2EFCC /* UIView+FloatKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8242A0821F3D30BE00C2EFCC /* UIView+FloatKeyboard.m */; };
+		8242A0B41F3D842400C2EFCC /* screenshot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8242A0B31F3D842400C2EFCC /* screenshot.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		8242A07B1F3D306200C2EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8242A0811F3D30BE00C2EFCC /* UIView+FloatKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FloatKeyboard.h"; sourceTree = "<group>"; };
 		8242A0821F3D30BE00C2EFCC /* UIView+FloatKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FloatKeyboard.m"; sourceTree = "<group>"; };
+		8242A0B31F3D842400C2EFCC /* screenshot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = screenshot.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				8242A0761F3D306200C2EFCC /* Assets.xcassets */,
 				8242A0781F3D306200C2EFCC /* LaunchScreen.storyboard */,
 				8242A07B1F3D306200C2EFCC /* Info.plist */,
+				8242A0B31F3D842400C2EFCC /* screenshot.gif */,
 				8242A06A1F3D306200C2EFCC /* Supporting Files */,
 			);
 			path = FloatableKeyboard;
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8242A0B41F3D842400C2EFCC /* screenshot.gif in Resources */,
 				8242A07A1F3D306200C2EFCC /* LaunchScreen.storyboard in Resources */,
 				8242A0771F3D306200C2EFCC /* Assets.xcassets in Resources */,
 				8242A0751F3D306200C2EFCC /* Main.storyboard in Resources */,
@@ -320,6 +324,7 @@
 				8242A0801F3D306200C2EFCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
