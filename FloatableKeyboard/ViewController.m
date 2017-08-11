@@ -36,7 +36,7 @@ const CGFloat kTextDefaultHeight = 40.f;
         self.textView = ({
             UITextView *textView = [UITextView new];
             /**
-             设置了默认属性则不需要单独设置，可单独关闭flotable
+             设置了默认属性则不需要单独设置，可单独关闭floatable
              [textView setFloatable:YES];
              */
             [textView setTextColor:[UIColor redColor]];
