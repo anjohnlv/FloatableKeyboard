@@ -36,7 +36,10 @@ const CGFloat kTextDefaultHeight = 40.f;
         CGPoint point = [touch locationInView:[touch view]];
         self.textView = ({
             UITextView *textView = [UITextView new];
-            [textView setFloatable:YES];
+            /**
+             设置了默认属性则不需要单独设置，可单独关闭flotable
+             [textView setFloatable:YES];
+             */
             [textView setTextColor:[UIColor redColor]];
             [textView setFont:[UIFont systemFontOfSize:20]];
             [textView setBackgroundColor:[UIColor whiteColor]];
