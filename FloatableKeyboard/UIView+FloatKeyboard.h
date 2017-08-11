@@ -13,12 +13,3 @@
 @property(nonatomic)BOOL floatable;
 
 @end
-
-
-@interface SingletonInput : NSObject
-
-+(instancetype)instance;
-
-@property(nonatomic, strong)UIView *view;
-
-@end

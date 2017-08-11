@@ -19,22 +19,13 @@ static const void *kFloatableKey = @"floatableKey";
 
 - (void)setFloatable:(BOOL)floatable {
     objc_setAssociatedObject(self, kFloatableKey, [NSNumber numberWithBool:floatable], OBJC_ASSOCIATION_ASSIGN);
-    if (floatable) {
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    }else{
-        [[NSNotificationCenter defaultCenter]removeObserver:self];
-    }
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    if ([SingletonInput instance].view != self) {
-        return;
-    }
     CGFloat keyboardHeight = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     CGFloat screenHeight = [[[UIApplication sharedApplication]keyWindow]bounds].size.height;
-    CGFloat textBottom = [self.superview convertRect:self.frame toView:[self viewController].view].origin.y + self.frame.size.height;
-    CGFloat offset = textBottom+keyboardHeight-screenHeight;
+    CGFloat selfBottom = [self.superview convertRect:self.frame toView:[self viewController].view].origin.y + self.frame.size.height;
+    CGFloat offset = selfBottom+keyboardHeight-screenHeight;
     double duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     if(offset > 0) {
         [UIView animateWithDuration:duration animations:^{
@@ -44,9 +35,6 @@ static const void *kFloatableKey = @"floatableKey";
 }
 
 - (void)keyboardWillHide:(NSNotification *)notify {
-    if ([SingletonInput instance].view != self) {
-        return;
-    }
     double duration = [[notify.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         [self viewController].view.frame = CGRectMake(0, 0, [self viewController].view.frame.size.width, [self viewController].view.frame.size.height);
@@ -64,21 +52,18 @@ static const void *kFloatableKey = @"floatableKey";
 }
 
 -(BOOL)becomeFirstResponder {
-    [SingletonInput instance].view = self;
+    if (self.floatable) {
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
     return [super becomeFirstResponder];
 }
 
-@end
-
-@implementation SingletonInput
-
-+(instancetype)instance {
-    static SingletonInput *singleton = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        singleton = [[self alloc] init];
-    });
-    return singleton;
+-(BOOL)resignFirstResponder {
+    BOOL b = [super resignFirstResponder];
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    return b;
 }
 
 @end
+
