@@ -15,4 +15,4 @@
 支持autolayout，autosizing，支持代码，也支持interface builder。
 如果有什么bug欢迎斧正。
 
-![screenshot](http://github.com/anjohnlv/FloatableKeyboard/raw/master/images-folder/screenshot.gif)
+![screenshot](https://github.com/anjohnlv/FloatableKeyboard/blob/master/FloatableKeyboard/screenshot.gif?raw=true)
