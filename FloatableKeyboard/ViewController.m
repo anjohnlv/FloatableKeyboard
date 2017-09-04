@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "UIView+FloatKeyboard.h"
+#import "FKTextView.h"
 
 @interface ViewController ()
 
-@property(nonatomic, strong)UITextView *textView;
+@property(nonatomic, strong)FKTextView *textView;
 
 @end
 
@@ -34,9 +34,9 @@ const CGFloat kTextDefaultHeight = 40.f;
         UITouch *touch = [[event allTouches]anyObject];
         CGPoint point = [touch locationInView:[touch view]];
         self.textView = ({
-            UITextView *textView = [UITextView new];
+            FKTextView *textView = [FKTextView new];
             /**
-             设置了默认属性则不需要单独设置，可单独关闭flotable
+             设置了默认属性则不需要单独设置，可单独关闭floatable
              [textView setFloatable:YES];
              */
             [textView setTextColor:[UIColor redColor]];
